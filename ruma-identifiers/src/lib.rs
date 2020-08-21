@@ -25,6 +25,10 @@ pub use crate::{
     room_version_id::RoomVersionId,
     server_key_id::ServerKeyId,
     server_name::{ServerName, ServerNameBox},
+    signatures::{
+        DeviceSignatures, DeviceSigningKeyId, EntitySignatures, KeyVersion, KeyVersionBox,
+        QualifiedKeyId, ServerSignatures, Signatures, SigningKeyId as SigningKeyTuple,
+    },
     signing_key_id::SigningKeyId,
     user_id::UserId,
 };
@@ -50,6 +54,7 @@ mod room_id_or_room_alias_id;
 mod room_version_id;
 mod server_key_id;
 mod server_name;
+mod signatures;
 mod signing_key_id;
 
 /// Check whether a given string is a valid server name according to [the specification][].

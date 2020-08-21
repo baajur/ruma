@@ -2,6 +2,7 @@ pub mod crypto_algorithms;
 pub mod device_key_id;
 pub mod error;
 pub mod event_id;
+pub mod qualified_key_id;
 pub mod room_alias_id;
 pub mod room_id;
 pub mod room_id_or_alias_id;

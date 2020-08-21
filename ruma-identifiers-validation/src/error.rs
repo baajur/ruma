@@ -22,8 +22,12 @@ pub enum Error {
     /// The ID is missing the colon delimiter between localpart and server name.
     MissingDelimiter,
     /// The ID is missing the colon delimiter between key algorithm and device ID.
+    #[deprecated = "Use MissingKeyDelimiter variant instead"]
     MissingDeviceKeyDelimiter,
+    /// The ID is missing the colon delimiter between key algorithm and key identifier.
+    MissingKeyDelimiter,
     /// The ID is missing the colon delimiter between key algorithm and version.
+    #[deprecated = "Use MissingKeyDelimiter variant instead"]
     MissingServerKeyDelimiter,
     /// The ID is missing the leading sigil.
     MissingSigil,
@@ -42,6 +46,7 @@ impl Display for Error {
             Error::MinimumLengthNotSatisfied => "ID must be at least 4 characters",
             Error::MissingDelimiter => "colon is required between localpart and server name",
             Error::MissingDeviceKeyDelimiter => "colon is required between algorithm and device ID",
+            Error::MissingKeyDelimiter => "colon is required between algorithm and key identifier",
             Error::MissingServerKeyDelimiter => "colon is required between algorithm and version",
             Error::MissingSigil => "leading sigil is missing",
             Error::UnknownKeyAlgorithm => "unknown key algorithm specified",
