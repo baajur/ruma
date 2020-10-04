@@ -12,7 +12,7 @@ use std::{collections::BTreeMap, time::SystemTime};
 
 use js_int::UInt;
 use ruma_events::EventType;
-use ruma_identifiers::{EventId, RoomId, ServerKeyId, ServerNameBox, UserId};
+use ruma_identifiers::{EventId, RoomId, ServerNameBox, ServerSigningKeyId, UserId};
 use serde::{Deserialize, Serialize};
 use serde_json::Value as JsonValue;
 
@@ -84,7 +84,7 @@ pub struct RoomV1Pdu {
     pub hashes: EventHash,
 
     /// Signatures for the PDU.
-    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerKeyId, String>>,
+    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerSigningKeyId, String>>,
 }
 
 /// A 'persistent data unit' (event) for room versions 3 and beyond.
@@ -140,7 +140,7 @@ pub struct RoomV3Pdu {
     pub hashes: EventHash,
 
     /// Signatures for the PDU.
-    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerKeyId, String>>,
+    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerSigningKeyId, String>>,
 }
 
 /// PDU type without event and room IDs.
@@ -216,7 +216,7 @@ pub struct RoomV1PduStub {
     pub hashes: EventHash,
 
     /// Signatures for the PDU.
-    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerKeyId, String>>,
+    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerSigningKeyId, String>>,
 }
 
 impl RoomV1PduStub {
@@ -292,7 +292,7 @@ pub struct RoomV3PduStub {
     pub hashes: EventHash,
 
     /// Signatures for the PDU.
-    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerKeyId, String>>,
+    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerSigningKeyId, String>>,
 }
 
 impl RoomV3PduStub {

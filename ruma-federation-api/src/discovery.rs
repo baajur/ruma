@@ -2,7 +2,7 @@
 
 use std::{collections::BTreeMap, time::SystemTime};
 
-use ruma_identifiers::{ServerKeyId, ServerNameBox};
+use ruma_identifiers::{ServerNameBox, ServerSigningKeyId};
 use serde::{Deserialize, Serialize};
 
 pub mod discover_homeserver;
@@ -57,7 +57,7 @@ pub struct ServerKey {
     pub old_verify_keys: BTreeMap<String, OldVerifyKey>,
     /// Digital signatures of this object signed using the verify_keys. Map of
     /// server name to keys by key ID
-    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerKeyId, String>>,
+    pub signatures: BTreeMap<ServerNameBox, BTreeMap<ServerSigningKeyId, String>>,
     /// Timestamp when the keys should be refreshed. This field MUST be ignored in room
     /// versions 1, 2, 3, and 4.
     #[serde(with = "ruma_serde::time::ms_since_unix_epoch")]

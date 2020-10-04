@@ -134,8 +134,9 @@ macro_rules! common_impls {
     };
 }
 
-macro_rules! key_identifier {
-    ($id:ident, $boxed:ident) => {
+macro_rules! opaque_identifier {
+    ($id:ident, $boxed:ident, $name:literal) => {
+        /*
         #[repr(transparent)]
         #[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
         #[cfg_attr(
@@ -144,9 +145,12 @@ macro_rules! key_identifier {
             serde(transparent, crate = "serde1")
         )]
         pub struct $id(str);
+        */
 
-        /// An owned device identifier.
-        pub type $boxed = Box<$id>;
+        doc_concat! {
+            #[doc = concat!("An owned ", stringify!($boxed), ".")]
+            pub type $boxed = Box<$id>;
+        }
 
         impl $id {
             #[allow(clippy::transmute_ptr_to_ptr)]
@@ -251,5 +255,6 @@ macro_rules! key_identifier {
 
         partial_eq_string!($id);
         partial_eq_string!(Box<$id>);
+        //}
     };
 }

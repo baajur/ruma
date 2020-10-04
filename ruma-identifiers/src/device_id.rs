@@ -1,21 +1,18 @@
 //! Matrix device identifiers.
 
-use std::{
-    fmt::{self, Display},
-    mem,
-};
-
 #[cfg(feature = "rand")]
 use crate::generate_localpart;
 
-pub use device_id::{DeviceId, DeviceIdBox};
-mod device_id {
-    //! A Matrix device ID.
-    //!
-    //! Device identifiers in Matrix are completely opaque character sequences. This type is provided
-    //! simply for its semantic value.
-    key_identifier!(DeviceId, DeviceIdBox);
-}
+/// A Matrix key ID.
+///
+/// Device identifiers in Matrix are completely opaque character sequences. This type is provided
+/// simply for its semantic value.
+#[repr(transparent)]
+#[derive(Debug, PartialEq, Eq, PartialOrd, Ord, Hash)]
+#[cfg_attr(feature = "serde", derive(serde1::Serialize), serde(transparent, crate = "serde1"))]
+pub struct DeviceId(str);
+
+opaque_identifier!(DeviceId, DeviceIdBox, "device ID");
 
 impl DeviceId {
     /// Generates a random `DeviceId`, suitable for assignment to a new device.
