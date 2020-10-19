@@ -41,7 +41,7 @@ impl<'a> IdentityServerInfo<'a> {
 }
 
 /// Possible values for deleting or unbinding 3PIDs
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "kebab-case")]
 pub enum ThirdPartyIdRemovalStatus {
     /// Either the homeserver couldn't determine the right identity server to contact, or the

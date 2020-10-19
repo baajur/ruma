@@ -13,7 +13,7 @@ pub mod request;
 pub mod start;
 
 /// A hash algorithm.
-#[derive(Clone, Copy, Debug, PartialEq, Display, EnumString, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Display, EnumString, Serialize, Deserialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
@@ -23,31 +23,33 @@ pub enum HashAlgorithm {
 }
 
 /// A key agreement protocol.
-#[derive(Clone, Copy, Debug, PartialEq, Display, EnumString, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Display, EnumString, Serialize, Deserialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "kebab-case")]
 #[strum(serialize_all = "kebab-case")]
 pub enum KeyAgreementProtocol {
     /// The [Curve25519](https://cr.yp.to/ecdh.html) key agreement protocol.
     Curve25519,
+
     /// The Curve25519 key agreement protocol with check for public keys.
     Curve25519HkdfSha256,
 }
 
 /// A message authentication code algorithm.
-#[derive(Clone, Copy, Debug, PartialEq, Display, EnumString, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Display, EnumString, Serialize, Deserialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "kebab-case")]
 #[strum(serialize_all = "kebab-case")]
 pub enum MessageAuthenticationCode {
     /// The HKDF-HMAC-SHA256 MAC.
     HkdfHmacSha256,
+
     /// The HMAC-SHA256 MAC.
     HmacSha256,
 }
 
 /// A Short Authentication String method.
-#[derive(Clone, Copy, Debug, PartialEq, Display, EnumString, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Display, EnumString, Serialize, Deserialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
@@ -60,7 +62,7 @@ pub enum ShortAuthenticationString {
 }
 
 /// A Short Authentication String (SAS) verification method.
-#[derive(Clone, Copy, Debug, PartialEq, Display, EnumString, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Display, EnumString, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub enum VerificationMethod {
     /// The *m.sas.v1* verification method.

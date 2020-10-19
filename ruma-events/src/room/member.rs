@@ -64,7 +64,7 @@ pub struct MemberEventContent {
 }
 
 /// The membership state of a user.
-#[derive(Clone, Copy, Debug, PartialEq, Display, EnumString, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Display, EnumString, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "lowercase")]
 #[strum(serialize_all = "lowercase")]
@@ -115,7 +115,7 @@ pub struct SignedContent {
 }
 
 /// Translation of the membership change in `m.room.member` event.
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub enum MembershipChange {
     /// No change.
@@ -155,6 +155,7 @@ pub enum MembershipChange {
     ProfileChanged {
         /// Whether the `displayname` changed.
         displayname_changed: bool,
+
         /// Whether the `avatar_url` changed.
         avatar_url_changed: bool,
     },
@@ -186,7 +187,7 @@ fn membership_change(
         }
     };
 
-    match (prev_content.membership, &content.membership) {
+    match (&prev_content.membership, &content.membership) {
         (St::Invite, St::Invite) | (St::Leave, St::Leave) | (St::Ban, St::Ban) => Ch::None,
         (St::Invite, St::Join) | (St::Leave, St::Join) => Ch::Joined,
         (St::Invite, St::Leave) => {

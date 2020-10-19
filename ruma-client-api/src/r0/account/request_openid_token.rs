@@ -61,7 +61,7 @@ impl Response {
 }
 
 /// Access token types.
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub enum TokenType {
     /// Bearer token type

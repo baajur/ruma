@@ -64,7 +64,7 @@ impl Response {
 }
 
 /// The kind of membership events to filter for.
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "lowercase")]
 pub enum MembershipEventFilter {

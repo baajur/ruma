@@ -51,7 +51,7 @@ impl Response {
 }
 
 /// The type of receipt.
-#[derive(Clone, Copy, Debug, Display, EnumString)]
+#[derive(Clone, Debug, Display, EnumString)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub enum ReceiptType {
     /// m.read

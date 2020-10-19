@@ -8,7 +8,7 @@ pub mod upgrade_room;
 use serde::{Deserialize, Serialize};
 
 /// Whether or not a newly created room will be listed in the room directory.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
 pub enum Visibility {

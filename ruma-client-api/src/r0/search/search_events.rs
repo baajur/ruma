@@ -71,7 +71,7 @@ impl Categories<'_> {
 }
 
 /// Criteria for searching a category of events.
-#[derive(Clone, Copy, Debug, Outgoing, Serialize)]
+#[derive(Clone, Debug, Outgoing, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub struct Criteria<'a> {
     /// The string to search events for.
@@ -118,7 +118,7 @@ impl<'a> Criteria<'a> {
 }
 
 /// Configures whether any context for the events returned are included in the response.
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub struct EventContext {
     /// How many events before the result are returned.
@@ -216,7 +216,7 @@ impl EventContextResult {
 }
 
 /// A grouping for partioning the result set.
-#[derive(Clone, Copy, Default, Debug, Deserialize, Serialize)]
+#[derive(Clone, Default, Debug, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub struct Grouping {
     /// The key within events to use for this grouping.
@@ -236,7 +236,7 @@ impl Grouping {
 }
 
 /// The key within events to use for this grouping.
-#[derive(Clone, Copy, Debug, Deserialize, PartialEq, Eq, PartialOrd, Ord, Serialize)]
+#[derive(Clone, Debug, Deserialize, PartialEq, Eq, PartialOrd, Ord, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
 pub enum GroupingKey {
@@ -248,7 +248,7 @@ pub enum GroupingKey {
 }
 
 /// Requests that the server partitions the result set based on the provided list of keys.
-#[derive(Clone, Copy, Default, Debug, Outgoing, Serialize)]
+#[derive(Clone, Default, Debug, Outgoing, Serialize)]
 #[incoming_derive(Default)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub struct Groupings<'a> {
@@ -270,7 +270,7 @@ impl Groupings<'_> {
 }
 
 /// The keys to search for.
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub enum SearchKeys {
     /// content.body
@@ -287,7 +287,7 @@ pub enum SearchKeys {
 }
 
 /// The order in which to search for results.
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
 pub enum OrderBy {

@@ -188,7 +188,7 @@ impl User {
 }
 
 /// The medium of a third party identifier.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "lowercase")]
 pub enum Medium {

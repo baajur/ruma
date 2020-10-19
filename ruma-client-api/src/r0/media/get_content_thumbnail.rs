@@ -6,7 +6,7 @@ use ruma_identifiers::ServerName;
 use serde::{Deserialize, Serialize};
 
 /// The desired resizing method.
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum Method {
     /// Crop the original to produce the requested image dimensions.

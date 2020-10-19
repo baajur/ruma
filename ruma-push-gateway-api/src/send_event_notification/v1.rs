@@ -137,13 +137,14 @@ impl<'a> Notification<'a> {
 ///
 /// This may be used by push gateways to deliver less time-sensitive
 /// notifications in a way that will preserve battery power on mobile devices.
-#[derive(Clone, Copy, Debug, Serialize, Deserialize, Display, EnumString, PartialEq)]
+#[derive(Clone, Debug, Serialize, Deserialize, Display, EnumString, PartialEq)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub enum NotificationPriority {
     /// A high priority notification
     High,
+
     /// A low priority notification
     Low,
 }
@@ -155,7 +156,7 @@ impl Default for NotificationPriority {
 }
 
 /// Type for passing information about notification counts.
-#[derive(Clone, Copy, Debug, Default, Deserialize, Serialize, PartialEq)]
+#[derive(Clone, Debug, Default, Deserialize, Serialize, PartialEq)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub struct NotificationCounts {
     /// The number of unread messages a user has across all of the rooms they

@@ -15,7 +15,7 @@ use ruma_identifiers::{RoomId, UserId};
 use serde::{Deserialize, Serialize};
 
 /// Format to use for returned events.
-#[derive(Copy, Clone, Debug, PartialEq, Eq, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
 pub enum EventFormat {
@@ -33,7 +33,7 @@ impl Default for EventFormat {
 }
 
 /// Filters to be applied to room events.
-#[derive(Clone, Copy, Debug, Default, Outgoing, Serialize)]
+#[derive(Clone, Debug, Default, Outgoing, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[incoming_derive(Clone, Default, Serialize)]
 pub struct RoomEventFilter<'a> {
@@ -138,7 +138,7 @@ impl IncomingRoomEventFilter {
 }
 
 /// Filters to be applied to room data.
-#[derive(Clone, Copy, Debug, Default, Outgoing, Serialize)]
+#[derive(Clone, Debug, Default, Outgoing, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[incoming_derive(Clone, Default, Serialize)]
 pub struct RoomFilter<'a> {
@@ -220,7 +220,7 @@ impl IncomingRoomFilter {
 }
 
 /// Filter for non-room data.
-#[derive(Clone, Copy, Debug, Default, Outgoing, Serialize)]
+#[derive(Clone, Debug, Default, Outgoing, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[incoming_derive(Clone, Default, Serialize)]
 pub struct Filter<'a> {
@@ -292,7 +292,7 @@ impl IncomingFilter {
 }
 
 /// A filter definition
-#[derive(Clone, Copy, Debug, Default, Outgoing, Serialize)]
+#[derive(Clone, Debug, Default, Outgoing, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[incoming_derive(Clone, Default, Serialize)]
 pub struct FilterDefinition<'a> {

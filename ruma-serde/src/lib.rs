@@ -20,7 +20,7 @@ pub use empty::vec_as_map_of_empty;
 
 /// Check whether a value is equal to its default value.
 pub fn is_default<T: Default + PartialEq>(val: &T) -> bool {
-    val == &T::default()
+    *val == T::default()
 }
 
 /// Simply returns `true`.

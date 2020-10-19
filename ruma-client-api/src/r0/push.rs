@@ -21,7 +21,7 @@ pub mod set_pushrule_enabled;
 
 /// The kinds of push rules that are available
 #[derive(
-    Clone, Copy, Debug, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize, Display, EnumString,
+    Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize, Display, EnumString,
 )]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
@@ -81,8 +81,8 @@ pub struct Pusher {
     pub data: PusherData,
 }
 
-/// Which kind a pusher is
-#[derive(Clone, Copy, Debug, Serialize, Deserialize)]
+/// Which kind a pusher is.
+#[derive(Clone, Debug, Serialize, Deserialize)]
 #[serde(rename_all = "snake_case")]
 pub enum PusherKind {
     /// A pusher that sends HTTP pokes.

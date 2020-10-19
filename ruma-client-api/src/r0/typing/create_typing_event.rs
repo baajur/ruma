@@ -56,6 +56,7 @@ impl Response {
 pub enum Typing {
     /// Not typing.
     No,
+
     /// Typing during the specified length of time.
     Yes(Duration),
 }
@@ -63,6 +64,7 @@ pub enum Typing {
 #[derive(Deserialize, Serialize)]
 struct TypingInner {
     typing: bool,
+
     #[serde(
         with = "ruma_serde::duration::opt_ms",
         default,

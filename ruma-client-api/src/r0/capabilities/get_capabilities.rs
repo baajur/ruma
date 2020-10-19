@@ -82,10 +82,10 @@ impl Capabilities {
 }
 
 /// Information about the m.change_password capability
-#[derive(Clone, Copy, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub struct ChangePasswordCapability {
-    /// True if the user can change their password, false otherwise.
+    /// `true` if the user can change their password, `false` otherwise.
     pub enabled: bool,
 }
 
@@ -150,14 +150,13 @@ impl Default for RoomVersionsCapability {
 }
 
 /// The stability of a room version
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
+#[serde(rename_all = "lowercase")]
 pub enum RoomVersionStability {
     /// Support for the given version is stable.
-    #[serde(rename = "stable")]
     Stable,
 
     /// Support for the given version is unstable.
-    #[serde(rename = "unstable")]
     Unstable,
 }

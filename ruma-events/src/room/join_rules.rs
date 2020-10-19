@@ -27,7 +27,7 @@ impl JoinRulesEventContent {
 }
 
 /// The rule used for users wishing to join this room.
-#[derive(Clone, Copy, Debug, PartialEq, Display, EnumString, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Display, EnumString, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "lowercase")]
 #[strum(serialize_all = "lowercase")]

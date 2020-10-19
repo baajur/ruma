@@ -237,7 +237,7 @@ impl PusherData {
 /// Currently, only "event_id_only" is supported as of [Push Gateway API r0.1.1][spec].
 ///
 /// [spec]: https://matrix.org/docs/spec/push_gateway/r0.1.1#homeserver-behaviour
-#[derive(Clone, Copy, Debug, Serialize, Deserialize)]
+#[derive(Clone, Debug, Serialize, Deserialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
 pub enum PushFormat {

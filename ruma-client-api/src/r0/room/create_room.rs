@@ -160,7 +160,7 @@ impl Default for CreationContent {
 }
 
 /// A convenience parameter for setting a few default state events.
-#[derive(Clone, Copy, Debug, Deserialize, Serialize)]
+#[derive(Clone, Debug, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
 pub enum RoomPreset {

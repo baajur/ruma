@@ -34,7 +34,7 @@ impl FeedbackEventContent {
 }
 
 /// A type of feedback.
-#[derive(Clone, Copy, Debug, PartialEq, Display, EnumString, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Display, EnumString, Deserialize, Serialize)]
 #[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 #[serde(rename_all = "snake_case")]
 #[strum(serialize_all = "snake_case")]

@@ -52,7 +52,7 @@ impl Response {
 }
 
 /// Profile fields to specify in query.
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Deserialize, Serialize)]
+#[derive(Clone, Debug, PartialEq, Eq, Deserialize, Serialize)]
 pub enum ProfileField {
     /// Display name of the user.
     #[serde(rename = "displayname")]
