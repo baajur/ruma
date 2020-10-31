@@ -73,7 +73,7 @@ pub fn derive_enum_as_ref_str(input: TokenStream) -> TokenStream {
     expand_enum_as_ref_str(&input).unwrap_or_else(|err| err.to_compile_error()).into()
 }
 
-#[proc_macro_derive(FromString)]
+#[proc_macro_derive(FromString, attributes(ruma_enum))]
 pub fn derive_enum_from_string(input: TokenStream) -> TokenStream {
     let input = parse_macro_input!(input as ItemEnum);
     expand_enum_from_string(&input).unwrap_or_else(|err| err.to_compile_error()).into()
