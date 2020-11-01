@@ -2,10 +2,9 @@
 
 use js_int::UInt;
 use ruma_api::ruma_api;
-use ruma_common::StringEnum;
 use ruma_common::{
     push::{PusherData, Tweak},
-    Outgoing,
+    Outgoing, StringEnum,
 };
 use ruma_events::EventType;
 use ruma_identifiers::{EventId, RoomAliasId, RoomId, UserId};
@@ -139,7 +138,6 @@ impl<'a> Notification<'a> {
 /// notifications in a way that will preserve battery power on mobile devices.
 #[derive(Clone, Debug, PartialEq, StringEnum)]
 #[ruma_enum(rename_all = "snake_case")]
-#[cfg_attr(not(feature = "unstable-exhaustive-types"), non_exhaustive)]
 pub enum NotificationPriority {
     /// A high priority notification
     High,

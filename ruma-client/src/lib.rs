@@ -281,7 +281,7 @@ impl Client {
     /// Convenience method that represents repeated calls to the sync_events endpoint as a stream.
     pub fn sync<'a>(
         &self,
-        filter: Option<SyncFilter<'a>>,
+        filter: Option<&'a SyncFilter<'a>>,
         since: String,
         set_presence: &'a ruma_common::presence::PresenceState,
         timeout: Option<Duration>,

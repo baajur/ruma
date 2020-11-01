@@ -29,7 +29,7 @@ ruma_api! {
         /// A filter represented either as its full JSON definition or the ID of a saved filter.
         #[serde(skip_serializing_if = "Option::is_none")]
         #[ruma_api(query)]
-        pub filter: Option<Filter<'a>>,
+        pub filter: Option<&'a Filter<'a>>,
 
         /// A point in time to continue a sync from.
         ///
@@ -119,7 +119,7 @@ impl Response {
 }
 
 /// A filter represented either as its full JSON definition or the ID of a saved filter.
-#[derive(Clone, Copy, Debug, Outgoing, Serialize)]
+#[derive(Clone, Debug, Outgoing, Serialize)]
 #[allow(clippy::large_enum_variant)]
 #[serde(untagged)]
 pub enum Filter<'a> {
@@ -541,7 +541,7 @@ mod tests {
     #[test]
     fn serialize_all_params() {
         let req: http::Request<Vec<u8>> = Request {
-            filter: Some(Filter::FilterId("66696p746572")),
+            filter: Some(&Filter::FilterId("66696p746572")),
             since: Some("s72594_4483_1934"),
             full_state: true,
             set_presence: &PresenceState::Offline,

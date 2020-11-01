@@ -1,7 +1,6 @@
 //! Endpoints for push notifications.
 
-use ruma_common::push::PusherData;
-use ruma_common::StringEnum;
+use ruma_common::{push::PusherData, StringEnum};
 use serde::{Deserialize, Serialize};
 
 pub mod delete_pushrule;

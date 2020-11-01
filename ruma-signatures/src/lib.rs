@@ -117,6 +117,7 @@ impl From<ruma_serde::CanonicalJsonError> for Error {
 
 /// The algorithm used for signing data.
 #[derive(Clone, Copy, Debug, Eq, Hash, PartialEq, AsRefStr, DisplayAsRefStr)]
+#[ruma_enum(rename_all = "snake_case")]
 pub enum Algorithm {
     /// The Ed25519 digital signature algorithm.
     Ed25519,
