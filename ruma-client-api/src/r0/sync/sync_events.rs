@@ -45,9 +45,11 @@ ruma_api! {
         pub full_state: bool,
 
         /// Controls whether the client is automatically marked as online by polling this API.
+        ///
+        /// Defaults to `PresenceState::Online`.
         #[serde(default, skip_serializing_if = "ruma_serde::is_default")]
         #[ruma_api(query)]
-        pub set_presence: PresenceState,
+        pub set_presence: &'a PresenceState,
 
         /// The maximum time to poll in milliseconds before returning this request.
         #[serde(
@@ -542,7 +544,7 @@ mod tests {
             filter: Some(Filter::FilterId("66696p746572")),
             since: Some("s72594_4483_1934"),
             full_state: true,
-            set_presence: PresenceState::Offline,
+            set_presence: &PresenceState::Offline,
             timeout: Some(Duration::from_millis(30000)),
         }
         .try_into_http_request("https://homeserver.tld", Some("auth_tok"))

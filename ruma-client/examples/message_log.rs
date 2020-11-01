@@ -27,7 +27,7 @@ async fn log_messages(homeserver_url: Uri, username: &str, password: &str) -> an
     let mut sync_stream = Box::pin(client.sync(
         None,
         initial_sync_response.next_batch,
-        PresenceState::Online,
+        &PresenceState::Online,
         Some(Duration::from_secs(30)),
     ));
 
